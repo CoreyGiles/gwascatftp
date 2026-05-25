@@ -45,7 +45,7 @@ get_accession_meta_data <- function(
       lftp_command = print_meta_data_file,
       execute_system_call = TRUE
     )
-    result_list[[i]] <- meta_data_raw
+    result_list[[i]] <- meta_data_raw[grep("bytes transferred", meta_data_raw, invert = TRUE)]
     names(result_list)[i] <- accession_name
   }
   return(result_list)
